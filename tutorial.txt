@@ -1,0 +1,106 @@
+Manual de Utilização da API
+
+### **Rotas de Produtos**
+
+- **Buscar produto por ID**  
+  **GET** `/produto/:id`  
+  **Descrição:** Retorna os dados de um produto específico pelo ID.
+
+- **Listar todos os produtos**  
+  **GET** `/produtos`  
+  **Descrição:** Retorna a lista de todos os produtos cadastrados.
+
+- **Criar um novo produto**  
+  **POST** `/produto`  
+  **Descrição:** Cadastra um novo produto no sistema.  
+  **Dados esperados no corpo da requisição:**  
+  ```json
+  {
+    "descricao": "string",
+    "quantidade": "int",
+    "valor": "float",
+    "proprietario_id": "int"
+  }
+  ```
+
+- **Deletar produto por ID**  
+  **DELETE** `/produto/:id`  
+  **Descrição:** Remove um produto específico pelo ID.
+
+- **Atualizar produto por ID**  
+  **PUT** `/produto/:id`  
+  **Descrição:** Atualiza os dados de um produto específico pelo ID.  
+  **Dados esperados no corpo da requisição:**  
+  ```json
+  {
+    "descricao": "string",
+    "quantidade": "int",
+    "valor": "float"
+  }
+  ```
+
+- **Buscar produto com maior quantidade**  
+  **GET** `/produtos/maior-quantidade`  
+  **Descrição:** Retorna o produto com a maior quantidade disponível.
+
+- **Buscar produto com maior valor unitário**  
+  **GET** `/produtos/maior-valor`  
+  **Descrição:** Retorna o produto com o maior valor unitário.
+
+- **Buscar produto com maior valor total**  
+  **GET** `/produtos/maior-valor-total`  
+  **Descrição:** Retorna o produto com o maior valor total (quantidade × valor).
+
+---
+
+### **Rotas de Proprietários**
+
+- **Buscar proprietário por ID**  
+  **GET** `/proprietario/:id`  
+  **Descrição:** Retorna os dados de um proprietário específico pelo ID.
+
+- **Listar todos os proprietários**  
+  **GET** `/proprietarios`  
+  **Descrição:** Retorna a lista de todos os proprietários cadastrados.
+
+- **Criar um novo proprietário**  
+  **POST** `/proprietario`  
+  **Descrição:** Cadastra um novo proprietário no sistema.  
+  **Dados esperados no corpo da requisição:**  
+  ```json
+  {
+    "nome": "string",
+    "email": "string",
+    "endereco": "string"
+  }
+  ```
+
+- **Deletar proprietário por ID**  
+  **DELETE** `/proprietario/:id`  
+  **Descrição:** Remove um proprietário específico pelo ID.
+
+- **Atualizar proprietário por ID**  
+  **PUT** `/proprietario/:id`  
+  **Descrição:** Atualiza os dados de um proprietário específico pelo ID.  
+  **Dados esperados no corpo da requisição:**  
+  ```json
+  {
+    "nome": "string",
+    "email": "string",
+    "endereco": "string"
+  }
+  ```
+
+- **Buscar proprietário por parte do nome**  
+  **GET** `/proprietarios/busca-nome/:nome`  
+  **Descrição:** Retorna os proprietários cujo nome contenha o termo informado.
+
+- **Buscar proprietário com mais produtos cadastrados**  
+  **GET** `/proprietarios/mais-produtos`  
+  **Descrição:** Retorna o proprietário que possui mais produtos cadastrados.
+
+---
+
+### **Observações**
+- Substitua `:id` ou `:nome` pelo valor correspondente ao fazer as requisições.
+- Certifique-se de enviar os dados no formato JSON para as rotas **POST** e **PUT**.
